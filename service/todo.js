@@ -1,7 +1,6 @@
 const repository = require("../repository/todo.js");
 
 const getTodos = async () => {
-
     try {
       const todos = await repository.getTodos();
       return new Promise((resolve, reject) => {
@@ -71,10 +70,24 @@ const completedTodo = async (id) => {
   }
 };
 
+const searchTodo = async (key) => {
+  try {
+    const todo = await repository.searchTodo(key);
+    return new Promise((resolve, reject) => {
+      resolve(todo);
+    });
+  } catch(err){
+    return new Promise((resolve, reject) => {
+      reject(err);
+    });
+  }
+}
+
 module.exports = {
     getTodos,
     addTodo,
     deleteTodo,
     updateTodo,
     completedTodo,
+    searchTodo,
 };

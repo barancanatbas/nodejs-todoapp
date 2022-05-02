@@ -88,6 +88,18 @@ const completedTodo = (todoIndex) => {
   });
 };
 
+
+const searchTodo = (key) => {
+  return new Promise((resolve, reject) => {
+    const todo = todos.find((todo) => {
+      return todo.title === key;
+    });
+
+    if (todo) resolve(todo);
+    else reject(new Error("Todo not found"));
+  });
+}
+
 module.exports = {
   getTodos,
   getTodo,
@@ -96,4 +108,5 @@ module.exports = {
   deleteTodo,
   getTodoIndex,
   completedTodo,
+  searchTodo,
 };

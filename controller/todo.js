@@ -46,10 +46,21 @@ const completedTodo = (req,res) => {
     });
 };
 
+const searchTodo = (req,res) => {
+    let {key} = req.params;
+
+    service.searchTodo(key).then((todos) => {
+        res.status(200).json(todos);
+    }).catch((err) => {
+        res.status(500).send(err);
+    });
+};
+
 module.exports = {
     getTodos,
     addTodo,
     deleteTodo,
     updateTodo,
     completedTodo,
+    searchTodo,
 }
