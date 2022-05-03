@@ -162,5 +162,5 @@ module.exports = pool;
 
 #### use case
 
-<img src="https://user-images.githubusercontent.com/64152397/166499740-472aded3-4e36-47ee-a40b-f3bb6836dc30.png" width="50%" />
+<img src="https://user-images.githubusercontent.com/64152397/166499740-472aded3-4e36-47ee-a40b-f3bb6836dc30.png" width="60%" />
 
