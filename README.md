@@ -153,3 +153,14 @@ module.exports = pool;
 ```
 
 #### You can review and use the add, delete, update routes.
+
+### Redis implemnte
+
+<img src="https://user-images.githubusercontent.com/64152397/166497566-49fba564-197f-4b3e-b058-2570cc0fd0c6.png" width="50%" />
+
+#### then we call connect function in app.js
+
+#### use case
+
+<img src="https://user-images.githubusercontent.com/64152397/166499740-472aded3-4e36-47ee-a40b-f3bb6836dc30.png" width="50%" />
+
