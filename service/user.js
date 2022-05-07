@@ -1,4 +1,5 @@
 const repository = require('../repository/user.js');
+var jwt = require('jsonwebtoken');
 
 const getUsers = async () => {
     try {
@@ -79,6 +80,20 @@ const deleteUserDeleteAt = async (id) => {
     }
 };
 
+const login = async (name,phone) => {
+    try {
+        const user = await repository.login(name,phone);
+        let token = jwt.sign({user:user}, 'secret');
+        return new Promise((resolve, reject) => {
+            resolve({user:user,token:token});
+        });
+    } catch(err) {
+        return new Promise((resolve, reject) => {
+            reject(err);
+        });
+    }
+};
+
 
 
 module.exports = {
@@ -88,4 +103,5 @@ module.exports = {
     deleteUser,
     deleteUserDeleteAt,
     getUser,
+    login,
 }

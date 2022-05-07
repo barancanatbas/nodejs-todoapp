@@ -1,6 +1,8 @@
 const service = require('../service/user.js');
 const redis = require("../config/redis.js");
 
+
+
 const getUsers = async (req,res) => {
 
     let redisKey = "users";
@@ -12,7 +14,7 @@ const getUsers = async (req,res) => {
         res.end();
         return 
     }
-    console.log("not redis");
+
     try {
         const users = await service.getUsers();
 
@@ -70,6 +72,16 @@ const deleteUser = (req,res) => {
     });
 };
 
+const login = async (req,res) => {
+    const {name,phone} = req.body;
+    try {
+        const loginData = await service.login(name,phone);
+        res.status(200).json(loginData);
+    } catch (err) {
+        res.status(400).json(err);
+    }
+}
+
 
 module.exports = {
     getUsers,
@@ -77,4 +89,5 @@ module.exports = {
     insertUser,
     updateUser,
     deleteUser,
+    login,
 }
